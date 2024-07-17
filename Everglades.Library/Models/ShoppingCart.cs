@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace Everglades.Library.Models
 {
-    internal class ShoppingCart
+    public class ShoppingCart
     {
+        int ID { get; set; }
+        public List<Product>? Contents { get; set; }
+
     }
 }

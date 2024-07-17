@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Everglades.Library.Services
 {
-    internal class ShoppingCartService
+    public class ShoppingCartService
     {
         private static ShoppingCartService? instance;
         private static object instanceLock  = new object();
@@ -20,14 +20,44 @@ namespace Everglades.Library.Services
 
             get
             {
-                if (carts == null)
+                if (carts == null || !carts.Any())
                 {
                     return new ShoppingCart();                    
                 }
-                carts.FirstOrDefault();
+                return carts?.FirstOrDefault() ?? new ShoppingCart();
             }
         }
+/*
+        public ShoppingCart AddOrUpdate(ShoppingCart c)
+        {
 
+        }
+*/
+        public void AddToCart(Product newProduct)
+        {
+            if(Cart ==null || Cart.Contents == null)
+            {
+                return;
+            }
+            var existingProduct = Cart.Contents?.FirstOrDefault(existingProducts => existingProducts.Id == newProduct.Id);
+            var inventoryProduct = InventoryServiceProxy.Current.Products.FirstOrDefault(invProd => invProd == newProduct);
+            
+            if(inventoryProduct == null)
+            {
+                return;
+            }
+
+            inventoryProduct.Quantity -= newProduct.Quantity;
+            
+            
+            if (existingProduct != null)
+            {
+                existingProduct.Quantity += newProduct.Quantity;
+            } else 
+            {
+                Cart.Contents?.Add(newProduct);
+            }
+        }
         private ShoppingCartService() { }
         public static ShoppingCartService Current
         {
