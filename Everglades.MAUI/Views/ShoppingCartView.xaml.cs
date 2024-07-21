@@ -9,12 +9,12 @@ public partial class ShoppingCartView : ContentPage
 	public ShoppingCartView()
 	{
 		InitializeComponent();
-		BindingContext = new ShoppingCartViewModel(); 
+		BindingContext = new InventoryViewModel(); 
 	}
 
 	public void EditClicked(Object sender, EventArgs e)
 	{
-		(BindingContext as ShoppingCartViewModel).UpdateProduct();
+		(BindingContext as InventoryViewModel).UpdateProduct();
 	}
 
 	private void BackClicked(object sender, EventArgs e)

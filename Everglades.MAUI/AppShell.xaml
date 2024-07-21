@@ -6,15 +6,22 @@
     xmlns:local="clr-namespace:Everglades.MAUI"
     xmlns:views="clr-namespace:Everglades.MAUI.Views"
     Shell.FlyoutBehavior="Disabled"
-    Title="Everglades.MAUI">
+    Title="Everglades">
 
     <ShellContent
-        Title="Inventory"
+        Title="Home"
         ContentTemplate="{DataTemplate local:MainPage}"
         Route="MainPage" />
     <ShellContent
-    Title="Shopping Cart"
-    ContentTemplate="{DataTemplate views:ShoppingCartView}"
-    Route="Shopping Cart" />
-
+        Title="ShoppingCart"
+        ContentTemplate="{DataTemplate views:ShoppingCartView}"
+        Route="Shopping Cart" />
+    <ShellContent
+        Title="Inventory"
+        ContentTemplate="{DataTemplate views:Inventory}"
+        Route="Inventory" />
+    <ShellContent
+        Title="Shop"
+        ContentTemplate="{DataTemplate views:Shop}"
+        Route="Shop" />
 </Shell>

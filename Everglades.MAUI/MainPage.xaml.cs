@@ -16,6 +16,14 @@ namespace Everglades.MAUI
             Shell.Current.GoToAsync("//Shopping Cart");
         }
 
+        private void ManageInventoryClicked(object sender, EventArgs e)
+        {
+            Shell.Current.GoToAsync("//Inventory");
+        }
+        private void ShopClicked(object sender, EventArgs e)
+        {
+            Shell.Current.GoToAsync("//Shop");
+        }
     }
 
 }
