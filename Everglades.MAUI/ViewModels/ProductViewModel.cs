@@ -28,6 +28,32 @@ namespace Everglades.MAUI.ViewModels
             Model = c; 
         }
 
+        public string PriceAsString
+        {
+            set
+            {
+                if (Model == null)
+                {
+                    return;
+                }
+                if(decimal.TryParse(value, out var price))
+                {
+                    Model.Price = price;
+                }
+                else
+                {
+
+                }
+            }
+        }
+
+        public void Add()
+        {
+            if (Model != null)
+            {
+                InventoryServiceProxy.Current.AddOrUpdate(Model);
+            }
+        }
         
     }
 }

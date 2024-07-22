@@ -27,7 +27,7 @@ public partial class Inventory : ContentPage
 
     private void ContentPage_NavigatedTo(object sender, NavigatedToEventArgs e)
     {
-        //(BindingContext as InventoryViewModel)?.Refresh();
+        (BindingContext as InventoryViewModel)?.Refresh();
     }
 
     private void EditClicked(object sender, EventArgs e)

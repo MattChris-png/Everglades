@@ -13,4 +13,9 @@ public partial class Shop : ContentPage
 	{
 		InitializeComponent();
 	}
+
+    private void CancelClicked(object sender, EventArgs e)
+    {
+        Shell.Current.GoToAsync("//MainPage");
+    }
 }

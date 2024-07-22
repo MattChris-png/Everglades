@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Everglades.CLI")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5121c8acad5f9cdeb7849b577bfb0dc26d2f93af")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9784c1046d20741e1c10dabb6b5295838a22f9fb")]
 [assembly: System.Reflection.AssemblyProductAttribute("Everglades.CLI")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Everglades.CLI")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

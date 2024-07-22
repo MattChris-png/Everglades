@@ -2,27 +2,42 @@
 using Everglades.Library.Services;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Everglades.MAUI.ViewModels
 {
-    public class InventoryViewModel
+    public class InventoryViewModel : INotifyPropertyChanged
     {
         public List<ProductViewModel> Products
         {
             get
             {
-                return InventoryServiceProxy.Current?.Products.Select(c => new ProductViewModel(c)).ToList()
+                return InventoryServiceProxy.Current?.Products.Select(p => new ProductViewModel(p)).ToList()
                     ?? new List<ProductViewModel>();
             }
         }
         public ProductViewModel SelectedProduct { get; set; }
         public InventoryViewModel() { }
+
+        public void Refresh()
+        {
+            NotifyPropertyChanged(nameof(Products));
+        }
+
+        public event PropertyChangedEventHandler? PropertyChanged;
+
+        private void NotifyPropertyChanged([CallerMemberName] string propertyName ="")
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
         public void UpdateProduct()
         {
-            if(SelectedProduct.Model == null)
+            if(SelectedProduct == null || SelectedProduct.Model == null )
             {
                 return;
             }

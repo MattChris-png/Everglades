@@ -4,9 +4,9 @@
              x:Class="Everglades.MAUI.Views.Shop"
              Title="Shop">
     <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
+        <Button
+            Text="Return to Menu"
+            Clicked="CancelClicked"
+        />
     </VerticalStackLayout>
 </ContentPage>
