@@ -1,0 +1,6 @@
+@Everglades.API_HostAddress = http://localhost:5270
+
+GET {{Everglades.API_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
