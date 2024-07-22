@@ -86,6 +86,12 @@
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>
+                <Label Text="{Binding CartTotal, StringFormat='Total: ${0:F2}'}"
+                       HorizontalOptions="End"
+                       VerticalOptions="Center"
+                       Grid.Row="1"
+                       Grid.Column="0"
+                       Grid.ColumnSpan="2"/>
             </Grid>
             <Grid 
                  Grid.Row="2" 

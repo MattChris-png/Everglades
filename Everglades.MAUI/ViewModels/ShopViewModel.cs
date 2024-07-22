@@ -120,6 +120,7 @@ namespace Everglades.MAUI.ViewModels
             
             NotifyPropertyChanged(nameof(ProductsInCart));
             NotifyPropertyChanged(nameof(Products));
+            NotifyPropertyChanged(nameof(CartTotal)); 
             //add to cart
 
         }
@@ -129,6 +130,13 @@ namespace Everglades.MAUI.ViewModels
         private void NotifyPropertyChanged([CallerMemberName] string propertyName = "")
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+        public decimal CartTotal
+        {
+            get
+            {
+                return ProductsInCart?.Sum(p => p.Model?.Price * p.Model?.Quantity) ?? 0;
+            }
         }
 
     }
