@@ -75,5 +75,17 @@ namespace Everglades.Library.Services
                 return instance;
             }
         }
+
+        public Product Delete(int id)
+        {
+            var itemToDelete = Products.FirstOrDefault(p => p.Id == id);
+            if(itemToDelete == null)
+            {
+                return null;
+            }
+
+            products.Remove(itemToDelete);
+            return itemToDelete;
+        }
     }
 }

@@ -45,6 +45,16 @@ namespace Everglades.MAUI.ViewModels
 
         }
 
+        public void Edit()
+        {
+            Shell.Current.GoToAsync($"//Product?productId={SelectedProduct?.Model?.Id ?? 0}");
+        }
+
+        public void Delete()
+        {
+            InventoryServiceProxy.Current.Delete(SelectedProduct?.Model?.Id ?? 0);
+            Refresh();
+        }
         public InventoryViewModel(Product c)
         {
             //product = c;

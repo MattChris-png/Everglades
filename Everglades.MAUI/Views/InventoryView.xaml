@@ -38,8 +38,6 @@
             </ListView.ItemTemplate>
         </ListView>
         <Button Text="Edit Product"
-                Command="{Binding Path=EditClicked}"
-                CommandParameter="{Binding}"
                 Clicked="EditClicked"/>
         <Button Text="Add Product"
                 Clicked="AddClicked"

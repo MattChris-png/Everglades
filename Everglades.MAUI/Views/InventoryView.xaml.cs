@@ -32,12 +32,12 @@ public partial class Inventory : ContentPage
 
     private void EditClicked(object sender, EventArgs e)
     {
-        (BindingContext as InventoryViewModel).UpdateProduct();
+        (BindingContext as InventoryViewModel)?.Edit();
     }
 
     private void DeleteClicked(object sender, EventArgs e)
     {
-        //(BindingContext as InventoryViewModel)?.Delete();
+        (BindingContext as InventoryViewModel)?.Delete();
     }
 
     private void SearchClicked(object sender, EventArgs e)
