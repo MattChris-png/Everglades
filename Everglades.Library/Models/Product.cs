@@ -17,6 +17,20 @@ namespace Everglades.Library.Models
         public int Id { get; set; }
         public int Quantity { get; set; }
 
+        public Product()
+        {
+
+        }
+
+        public Product(Product p)
+        {
+            Name = p.Name;
+            Description = p.Description;
+            Price = p.Price;
+            Id = p.Id;
+            Quantity = p.Quantity;
+        }
+
     
     }
 }

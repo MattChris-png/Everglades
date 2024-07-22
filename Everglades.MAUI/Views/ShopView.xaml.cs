@@ -21,6 +21,18 @@ public partial class Shop : ContentPage
     }
     private void ContentPage_NavigatedTo(object sender, NavigatedToEventArgs e)
     {
-        (BindingContext as InventoryViewModel)?.Refresh();
+        (BindingContext as ShopViewModel)?.Refresh();
+    }
+
+    private void InventorySearchClicked(object sender, EventArgs e)
+    {
+        (BindingContext as ShopViewModel)?.Search();
+
+    }
+
+    private void AddToCartClicked(object sender, EventArgs e)
+    {
+        (BindingContext as ShopViewModel)?.AddToCart();
+
     }
 }

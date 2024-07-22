@@ -11,5 +11,8 @@ namespace Everglades.Library.Models
         int ID { get; set; }
         public List<Product>? Contents { get; set; }
 
+        public ShoppingCart() { 
+            Contents = new List<Product>();
+        }
     }
 }
