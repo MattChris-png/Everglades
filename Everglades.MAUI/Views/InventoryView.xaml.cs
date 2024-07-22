@@ -22,7 +22,6 @@ public partial class Inventory : ContentPage
     private void AddClicked(object sender, EventArgs e)
     {
         Shell.Current.GoToAsync("//Product");
-
     }
 
     private void ContentPage_NavigatedTo(object sender, NavigatedToEventArgs e)

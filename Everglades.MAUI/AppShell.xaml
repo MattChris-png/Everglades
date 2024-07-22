@@ -12,10 +12,10 @@
         Title="Home"
         ContentTemplate="{DataTemplate local:MainPage}"
         Route="MainPage" />
-    <ShellContent
+    <!--<ShellContent
         Title="ShoppingCart"
         ContentTemplate="{DataTemplate views:ShoppingCartView}"
-        Route="Shopping Cart" />
+        Route="Shopping Cart" />-->
     <ShellContent
         Title="Inventory"
         ContentTemplate="{DataTemplate views:Inventory}"

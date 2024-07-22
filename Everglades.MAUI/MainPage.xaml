@@ -13,9 +13,9 @@
             <Button
                 Text="Shop"
                 Clicked="ShopClicked"/>
-            <Button
+            <!--<Button
                 Text="TestCart"
-                Clicked="Clicked"/>
+                Clicked="Clicked"/>-->
         </VerticalStackLayout>
     </ScrollView>
 
