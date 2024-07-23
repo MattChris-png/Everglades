@@ -17,6 +17,8 @@ namespace Everglades.Library.Models
         public int Id { get; set; }
         public int Quantity { get; set; }
 
+        public string? Useless1 {  get; set; }
+
         public Product()
         {
 

@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
+using Everglades.Library.Utilities;
 
 namespace Everglades.Library.Services
 {
@@ -61,9 +62,8 @@ namespace Everglades.Library.Services
                 new Product{Name = "Key Lime", Id = 3, Description="From the Keys", Price=200.10M, Quantity=120}
             };
 
-            var response = "[\r\n  {\r\n    \"name\": \"Banana\",\r\n    \"description\": \"Its a Banana\",\r\n    \"price\": 20.25,\r\n    \"id\": 1,\r\n    \"quantity\": 1\r\n  },\r\n  {\r\n    \"name\": \"Orange\",\r\n    \"description\": \"Its a Orange\",\r\n    \"price\": 5,\r\n    \"id\": 2,\r\n    \"quantity\": 1000\r\n  },\r\n  {\r\n    \"name\": \"Key Lime\",\r\n    \"description\": \"From the Keys\",\r\n    \"price\": 200.1,\r\n    \"id\": 3,\r\n    \"quantity\": 120\r\n  }\r\n]";
-
-            //products = JsonConvert.DeserializeObject<List<Product>>(response);
+            var response = new WebRequestHandler().Get("/Inventory").Result;
+            products = JsonConvert.DeserializeObject<List<Product>>(response);
         }
 
         public static InventoryServiceProxy Current
