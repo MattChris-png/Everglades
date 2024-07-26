@@ -1,4 +1,5 @@
-﻿using Everglades.Library.Models;
+﻿using Everglades.Library.DTO;
+using Everglades.Library.Models;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -43,7 +44,7 @@ namespace Everglades.Library.Services
 
         }
 */
-        public void AddToCart(Product newProduct)
+        public void AddToCart(ProductDTO newProduct)
         {
             if(Cart ==null || Cart.Contents == null)
             {

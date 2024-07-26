@@ -1,4 +1,5 @@
-﻿using Everglades.Library.Models;
+﻿using Everglades.Library.DTO;
+using Everglades.Library.Models;
 using Everglades.Library.Services;
 using System;
 using System.Collections.Generic;
@@ -12,7 +13,7 @@ namespace Everglades.MAUI.ViewModels
    
     public class ProductViewModel
     {
-        public Product? Model { get; set; }
+        public ProductDTO? Model { get; set; }
         public override string ToString()
         {
             return Model?.Name ?? "NA";
@@ -20,25 +21,25 @@ namespace Everglades.MAUI.ViewModels
 
         public ProductViewModel()
         {
-            Model = new Product();
+            Model = new ProductDTO();
         }
 
         public ProductViewModel(int productId =0)
         {
             if(productId == 0)
             {
-                Model = new Product();
+                Model = new ProductDTO();
             }
             else
             {
                 Model = InventoryServiceProxy
                    .Current
                    .Products.FirstOrDefault(p => p.Id == productId)
-                   ?? new Product();
+                   ?? new ProductDTO();
             }
         }
 
-        public ProductViewModel(Product c)
+        public ProductViewModel(ProductDTO c)
         {
             Model = c; 
         }
@@ -62,11 +63,12 @@ namespace Everglades.MAUI.ViewModels
             }
         }
 
-        public void Add()
+        public async void Add()
         {
             if (Model != null)
             {
-                InventoryServiceProxy.Current.AddOrUpdate(Model);
+                await InventoryServiceProxy.Current.AddOrUpdate(Model);
+
             }
         }
         
