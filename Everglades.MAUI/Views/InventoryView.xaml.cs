@@ -41,6 +41,6 @@ public partial class Inventory : ContentPage
 
     private void SearchClicked(object sender, EventArgs e)
     {
-        //(BindingContext as InventoryViewModel)?.Search();
+        (BindingContext as InventoryViewModel)?.Search();
     }
 }

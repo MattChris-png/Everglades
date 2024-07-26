@@ -1,4 +1,5 @@
-﻿using Everglades.Library.Models;
+﻿using Everglades.Library.DTO;
+using Everglades.Library.Models;
 using Everglades.Library.Services;
 using System;
 using System.Collections.Generic;
@@ -12,6 +13,7 @@ namespace Everglades.MAUI.ViewModels
 {
     public class InventoryViewModel : INotifyPropertyChanged
     {
+        public string Query { get; set; }
         public List<ProductViewModel> Products
         {
             get
@@ -25,7 +27,7 @@ namespace Everglades.MAUI.ViewModels
 
         public async void Refresh()
         {
-            await InventoryServiceProxy.Current.Get();
+            await InventoryServiceProxy.Current.Search(new Query(Query));
             NotifyPropertyChanged(nameof(Products));
         }
 
@@ -60,7 +62,13 @@ namespace Everglades.MAUI.ViewModels
         {
             //product = c;
         }
-    
+        
+        public async void Search()
+        {
+            await InventoryServiceProxy.Current.Search(new Query(Query));
+            Refresh();
+
+        }
     }
 
     

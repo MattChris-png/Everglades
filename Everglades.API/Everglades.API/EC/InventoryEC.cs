@@ -59,5 +59,14 @@ namespace Everglades.API.EC
             FakeDatabase.Products.Remove(itemToDelete);
             return new ProductDTO(itemToDelete);
         }
+
+        public async Task<IEnumerable<ProductDTO>> Search(string query)
+        {
+            return FakeDatabase.Products.Where(p =>
+            (p?.Name != null && p.Name.ToUpper().Contains(query?.ToUpper() ?? string.Empty))
+                ||
+            (p?.Description != null && p.Description.ToUpper().Contains(query?.ToUpper() ?? string.Empty)))
+                .Take(100).Select(p => new ProductDTO(p));
+        }
     }
 }

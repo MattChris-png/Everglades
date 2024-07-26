@@ -86,5 +86,17 @@ namespace Everglades.Library.Services
             var itemToDelete = JsonConvert.DeserializeObject<ProductDTO>(response);
             return itemToDelete;
         }
+
+        public async Task<IEnumerable<ProductDTO>> Search(Query? query)
+        {
+            if (query == null || string.IsNullOrEmpty(query.QueryString))
+            {
+                return await Get();
+            }
+
+            var result = await new WebRequestHandler().Post("/Inventory/Search", query);
+            products = JsonConvert.DeserializeObject<List<ProductDTO>>(result) ?? new List<ProductDTO>();
+            return Products;
+        }
     }
 }

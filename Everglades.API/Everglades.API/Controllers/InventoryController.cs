@@ -6,7 +6,7 @@ namespace Everglades.API.Controllers
 {
 
     [ApiController]
-    [Route("[controller]")] 
+    [Route("[controller]")]
     public class InventoryController : ControllerBase
     {
 
@@ -15,7 +15,7 @@ namespace Everglades.API.Controllers
 
         public InventoryController(ILogger<InventoryController> logger)
         {
-            _logger =logger;
+            _logger = logger;
         }
 
         [HttpGet()]
@@ -35,6 +35,12 @@ namespace Everglades.API.Controllers
         public async Task<ProductDTO> AddOrUpdate([FromBody] ProductDTO p)
         {
             return await new InventoryEC().AddOrUpdate(p);
+        }
+
+        [HttpPost("Search")]
+        public async Task<IEnumerable<ProductDTO>> Get(Query query)
+        {
+            return await new InventoryEC().Search(query.QueryString);
         }
     }
 }
