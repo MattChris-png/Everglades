@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Everglades.Library.DTO;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
@@ -33,6 +34,14 @@ namespace Everglades.Library.Models
             Quantity = p.Quantity;
         }
 
+        public Product(ProductDTO d)
+        {
+            Name = d.Name;
+            Description = d.Description;
+            Price = d.Price;
+            Id = d.Id;
+            Quantity = d.Quantity;
+        }
     
     }
 }

@@ -1,4 +1,5 @@
-﻿using Everglades.Library.Models;
+﻿using Everglades.Library.DTO;
+using Everglades.Library.Models;
 using Everglades.Library.Services;
 using System;
 using System.Collections.Generic;
@@ -66,11 +67,11 @@ namespace Everglades.MAUI.ViewModels
                 productToBuy = value;
                 if(productToBuy != null && productToBuy.Model == null)
                 {
-                    productToBuy.Model = new Product();
+                    productToBuy.Model = new ProductDTO();
                 }
                 else if(productToBuy != null && productToBuy.Model != null) {
                 
-                    productToBuy.Model = new Product(productToBuy.Model);
+                    productToBuy.Model = new ProductDTO(productToBuy.Model);
                     
                     
                 }
@@ -113,7 +114,7 @@ namespace Everglades.MAUI.ViewModels
             {
                 return;
             }
-            ProductToBuy.Model = new Product(ProductToBuy.Model);
+            ProductToBuy.Model = new ProductDTO(ProductToBuy.Model);
             //remove from inventory
             ProductToBuy.Model.Quantity = 1;
             ShoppingCartServiceProxy.Current.AddToCart(ProductToBuy.Model);

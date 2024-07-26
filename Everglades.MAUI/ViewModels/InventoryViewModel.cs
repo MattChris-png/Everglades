@@ -23,8 +23,9 @@ namespace Everglades.MAUI.ViewModels
         public ProductViewModel SelectedProduct { get; set; }
         public InventoryViewModel() { }
 
-        public void Refresh()
+        public async void Refresh()
         {
+            await InventoryServiceProxy.Current.Get();
             NotifyPropertyChanged(nameof(Products));
         }
 
@@ -42,7 +43,7 @@ namespace Everglades.MAUI.ViewModels
                 return;
             }
             InventoryServiceProxy.Current.AddOrUpdate(SelectedProduct.Model);
-
+            InventoryServiceProxy.Current.Get();
         }
 
         public void Edit()
@@ -50,9 +51,9 @@ namespace Everglades.MAUI.ViewModels
             Shell.Current.GoToAsync($"//Product?productId={SelectedProduct?.Model?.Id ?? 0}");
         }
 
-        public void Delete()
+        public async void Delete()
         {
-            InventoryServiceProxy.Current.Delete(SelectedProduct?.Model?.Id ?? 0);
+            await InventoryServiceProxy.Current.Delete(SelectedProduct?.Model?.Id ?? 0);
             Refresh();
         }
         public InventoryViewModel(Product c)
