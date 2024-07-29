@@ -17,18 +17,22 @@
                 <RowDefinition/>
                 <RowDefinition/>
                 <RowDefinition/>
+                <RowDefinition/>
             </Grid.RowDefinitions>
             <Label Text="Id" Grid.Row="0" Grid.Column="0"/>
             <Label Text="{Binding Model.Id}" Grid.Row="0" Grid.Column="1"/>
 
             <Label Text="Name" Grid.Row="1" Grid.Column="0"/>
             <Entry Text="{Binding Model.Name}" Grid.Row="1" Grid.Column="1"/>
+            
+            <Label Text="Description" Grid.Row="2" Grid.Column="0"/>
+            <Entry Text="{Binding Model.Description}" Grid.Row="2" Grid.Column="1"/>
 
-            <Label Text="Price" Grid.Row="2" Grid.Column="0"/>
-            <Entry Text="{Binding PriceAsString}" Grid.Row="2" Grid.Column="1"/>
+            <Label Text="Price" Grid.Row="3" Grid.Column="0"/>
+            <Entry Text="{Binding PriceAsString}" Grid.Row="3" Grid.Column="1"/>
 
-            <Label Text="Quantity" Grid.Row="3" Grid.Column="0"/>
-            <Entry Text="{Binding Model.Quantity}" Grid.Row="3" Grid.Column="1"/>
+            <Label Text="Quantity" Grid.Row="4" Grid.Column="0"/>
+            <Entry Text="{Binding Model.Quantity}" Grid.Row="4" Grid.Column="1"/>
 
         </Grid>
         <Button Text="Ok" Clicked="AddClicked"/>

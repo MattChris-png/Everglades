@@ -12,11 +12,13 @@ namespace Everglades.API.EC
 
         public async Task<IEnumerable<ProductDTO>> Get()
         {
-            return FakeDatabase.Products.Take(100).Select(p => new ProductDTO(p));
+                return new MSSQLContext().GetProducts().Select(p => new ProductDTO(p));
+            //           return FakeDatabase.Products.Take(100).Select(p => new ProductDTO(p));
         }
 
         public async Task<ProductDTO> AddOrUpdate(ProductDTO p)
         {
+            /*
             if (p == null)
             {
                 return null;
@@ -45,12 +47,30 @@ namespace Everglades.API.EC
             }
             return p;
 
+            */
+            //return new ProductDTO(new MSSQLContext().AddProduct(new Product(p)));
+            if (p == null)
+            {
+                return null;
+            }
+
+            if (p.Id == 0)
+            {
+                // Add new product
+                return new ProductDTO(new MSSQLContext().AddProduct(new Product(p)));
+            }
+            else
+            {
+                // Update existing product
+                return new ProductDTO(new MSSQLContext().UpdateProduct(new Product(p)));
+            }
             
+
         }
 
         public async Task<ProductDTO?> Delete(int id)
         {
-            var itemToDelete = FakeDatabase.Products.FirstOrDefault(p => p.Id == id);
+            /*var itemToDelete = FakeDatabase.Products.FirstOrDefault(p => p.Id == id);
             if (itemToDelete == null)
             {
                 return null;
@@ -58,7 +78,11 @@ namespace Everglades.API.EC
 
             FakeDatabase.Products.Remove(itemToDelete);
             return new ProductDTO(itemToDelete);
+            */
+            return new ProductDTO(new MSSQLContext().DeleteProductAsync(id));
         }
+
+
 
         public async Task<IEnumerable<ProductDTO>> Search(string query)
         {
