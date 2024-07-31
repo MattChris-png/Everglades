@@ -9,7 +9,7 @@ namespace Everglades.API.Database
     public class MSSQLContext
     {
 
-        string connectionString = @"Server = DESKTOP-B0QRMKN\EVERGLADESSQL; Database = Everglades; Trusted_Connection = yes;TrustServerCertificate=True";
+        private string connectionString = @"Server = DESKTOP-B0QRMKN\EVERGLADESSQL; Database = Everglades; Trusted_Connection = yes;TrustServerCertificate=True";
         public Product AddProduct(Product p)
         {
             using (SqlConnection conn = new SqlConnection(connectionString))
@@ -53,7 +53,7 @@ namespace Everglades.API.Database
             {
                 using (SqlCommand cmd = conn.CreateCommand())
                 {
-                    var sql = $"SELECT Id, REPLACE(name, '''','') as Name, Description, Price, Quantity FROM PRODUCT";
+                    var sql = $"SELECT Id, REPLACE(name, '''','') as Name,REPLACE(description, '''','') as Description, Price, Quantity FROM PRODUCT";
                     cmd.CommandType = CommandType.Text;
                     cmd.CommandText = sql;
 
@@ -85,7 +85,7 @@ namespace Everglades.API.Database
             return products;
         }
 
-        public ProductDTO? DeleteProductAsync(int id)
+        public ProductDTO? DeleteProduct(int id)
         {
             ProductDTO? deletedProduct = null;
 
@@ -101,7 +101,6 @@ namespace Everglades.API.Database
                     conn.Open();
                     cmd.ExecuteNonQuery();
                     conn.Close();
-                        // Optionally, retrieve the deleted product details before deleting
                     deletedProduct = new ProductDTO { Id = id };
                 }
             }

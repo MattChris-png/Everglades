@@ -28,4 +28,8 @@
         Title="Shop"
         ContentTemplate="{DataTemplate views:Shop}"
         Route="Shop" />
+    <ShellContent
+        Title="Import Wizard"
+        ContentTemplate="{DataTemplate views:ImportView}"
+        Route="Import" />
 </Shell>

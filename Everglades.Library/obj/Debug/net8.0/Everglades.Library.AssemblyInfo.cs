@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Everglades.Library")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+03867ef489d56e7c014035520754f5640f80c779")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+236156760ef09bab80ab83017e8c5c9310c676a0")]
 [assembly: System.Reflection.AssemblyProductAttribute("Everglades.Library")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Everglades.Library")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

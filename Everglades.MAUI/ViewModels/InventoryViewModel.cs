@@ -69,6 +69,12 @@ namespace Everglades.MAUI.ViewModels
             Refresh();
 
         }
+
+        public async void Import()
+        {
+            Shell.Current.GoToAsync("//Import");
+        }
+
     }
 
     

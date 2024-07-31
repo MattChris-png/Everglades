@@ -79,7 +79,7 @@ namespace Everglades.API.EC
             FakeDatabase.Products.Remove(itemToDelete);
             return new ProductDTO(itemToDelete);
             */
-            return new ProductDTO(new MSSQLContext().DeleteProductAsync(id));
+            return new ProductDTO(new MSSQLContext().DeleteProduct(id));
         }
 
 

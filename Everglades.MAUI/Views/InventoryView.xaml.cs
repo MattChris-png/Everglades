@@ -43,4 +43,9 @@ public partial class Inventory : ContentPage
     {
         (BindingContext as InventoryViewModel)?.Search();
     }
+
+    private void ImportClicked(object sender, EventArgs e)
+    {
+        (BindingContext as InventoryViewModel)?.Import();
+    }
 }

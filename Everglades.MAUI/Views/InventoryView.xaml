@@ -4,8 +4,13 @@
              x:Class="Everglades.MAUI.Views.Inventory"
              Title="Inventory"
              NavigatedTo="ContentPage_NavigatedTo">
-    <VerticalStackLayout>
-        <Grid>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="9*"/>
+            <RowDefinition Height="3*"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="10*"/>
                 <ColumnDefinition/>
@@ -13,10 +18,13 @@
             <Entry Grid.Column="0" Text="{Binding Query}"/>
             <Button Grid.Column="1" Text="Search" Clicked="SearchClicked"/>
         </Grid>
+
         <ListView
-            ItemsSource="{Binding Products}"
-            SelectedItem="{Binding SelectedProduct}"
-            >
+                ItemsSource="{Binding Products}"
+                SelectedItem="{Binding SelectedProduct}"
+                Grid.Row="1"
+                Margin="5"
+                >
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
@@ -24,31 +32,57 @@
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition/>
                                 <ColumnDefinition/>
-                                <ColumnDefinition Width="3*"/>
+                                <ColumnDefinition Width="5*"/>
                                 <ColumnDefinition/>
                                 <ColumnDefinition/>
                             </Grid.ColumnDefinitions>
 
                             <Label Grid.Column="0" Text="{Binding Model.Id}"/>
-                            <Label Grid.Column="1" Text="{Binding Model.Price, StringFormat='${0:F2}'}}"/>
+                            <Label Grid.Column="1" Text="{Binding Model.Price}"/>
                             <Label Grid.Column="2" Text="{Binding Model.Name}"/>
                             <Label Grid.Column="3" Text="{Binding Model.Description}"/>
-                            <Label Grid.Column="4" Text="{Binding Model.Quantity, StringFormat='Stock: {0}'}"/>
+                            <Label Grid.Column="4" Text="{Binding Model.Quantity}"/>
                         </Grid>
                     </ViewCell>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-        <Button Text="Edit Product"
-                Clicked="EditClicked"/>
-        <Button Text="Add Product"
-                Clicked="AddClicked"
+
+        <Grid Grid.Row ="2"
+              Margin="5"
+              Padding="5"
+              >
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0" Margin="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Button Text="Add Product"
+                    Clicked="AddClicked"
+                    Grid.Column="0" 
+                    />
+                <Button Text="Import Products"
+                    Clicked="ImportClicked"
+                        Grid.Column="1"/>
+                <Button Text="Edit Product"
+                    Clicked="EditClicked"
+                    Grid.Column="2"/>
+                <Button Text="Delete Product"
+                    Clicked="DeleteClicked"
+                    Grid.Column="3"/>
+            </Grid>
+
+            <Button
+                Text="Cancel"
+                Clicked="CancelClicked"
+                Grid.Row="2"
                 />
-        <Button Text="Delete Product"
-                Clicked="DeleteClicked"/>
-        <Button
-            Text="Return to Menu"
-            Clicked="CancelClicked"
-            />
-    </VerticalStackLayout>
+        </Grid>
+    </Grid>
 </ContentPage>
